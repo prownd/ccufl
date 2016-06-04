@@ -1,12 +1,15 @@
-# c_function_library
-c common use function library
-
-compile and install
-make 
-make install
-
-
-hello.c
+# c_function_library  
+c common use function library  
+  
+  
+#compile and install  
+make  
+make install  
+  
+  
+#example  
+a hello.c example  
+```c
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -45,6 +48,6 @@ int main(int argc, char **argv){
 	h=NULL;
 	return 0;	
 }
-
+```
 gcc hello.c -o hello -I/include_path -L/lib_path/ -lccufl 
 
