@@ -1,10 +1,16 @@
-POJ = code_repos
 CC = gcc
+AR=ar rc
+MV=mv
+
 CFLAGS = -ggdb3 -Wall -std=gnu99 -D_GNU_SOURCE -DPROV #-DNATION -DFRONT
-DIR = code_repos
+LIB_DIR = ./lib
+OBJS_DIR=./objs
+
+LIB_OBJ=libccufl.a
 INCS = -I src/
 SRCS = src/log.c 		\
 	   src/htab.c		\
+	   src/hashtable.c	\
 	   src/slist.c		\
 	   src/pqueue.c		\
 	   src/conf.c		\
@@ -12,31 +18,37 @@ SRCS = src/log.c 		\
 	   src/log.c		\
 	   src/tlv.c		\
 	   src/times.c		\
-	   src/cycle.c		\
 	   src/util.c		
 OBJS = objs/log.o 		\
 	   objs/htab.o		\
+	   objs/hashtable.o	\
 	   objs/slist.o		\
 	   objs/pqueue.o	\
 	   objs/conn.o		\
 	   objs/tlv.o		\
-	   objs/log.o            \
+	   objs/log.o       \
 	   objs/conf.o		\
 	   objs/times.o		\
-	   objs/cnf.o		\
-	   objs/cycle.o		\
 	   objs/util.o		
 #LIBS = -L ./lib/  -lpthread -lm -lz
-EXEC = code_repos
 
-#$(EXEC) : $(OBJS)
-#	$(CC) $(OBJS) -o $(EXEC) $(CFLAGS) $(LIBS)
+$(shell  mkdir  -p  ${OBJS_DIR})
 
+
+all: $(LIB_OBJ)
+
+$(LIB_OBJ):$(OBJS)
+	$(AR) $(LIB_OBJ) $(OBJS)	
+	$(shell mkdir -p ${LIB_DIR})
+	$(MV) $(LIB_OBJ) $(LIB_DIR)
 objs/log.o : src/log.c
 		$(CC) -c src/log.c -o objs/log.o $(CFLAGS)
 
 objs/htab.o : src/htab.c
 		$(CC) -c src/htab.c -o objs/htab.o $(CFLAGS)
+
+objs/hashtable.o : src/hashtable.c
+		$(CC) -c src/hashtable.c -o objs/hashtable.o $(CFLAGS)
 
 objs/slist.o : src/slist.c
 		$(CC) -c src/slist.c -o objs/slist.o $(CFLAGS)
@@ -67,4 +79,8 @@ install :
 #		test -d '/usr/local/$(POJ)/bin' || mkdir -p '/usr/local/$(POJ)/bin'
 
 clean :
-		$(RM) $(OBJS) $(EXEC)
+		$(RM) $(OBJS) 
+		$(RM) $(LIB_OJB)
+		$(RM) -fr $(LIB_DIR)
+		$(RM) -fr $(OBJS_DIR)
+
