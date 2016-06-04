@@ -1,5 +1,5 @@
 /**
- * @file main_test.c
+ * @file hashtable_test.c
  */
 
 #include <string.h>

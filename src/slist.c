@@ -1,7 +1,7 @@
 /**
  * @file slist.c
- * @time 2011-12-03
- * @author df zyz ({dufei,zhangyongzheng}@software.ict.ac.cn)
+ * @time 2015-7-2
+ * @author hanjinpeng127@163.com
  * @version 1.0
  */
 

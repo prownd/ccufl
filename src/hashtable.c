@@ -1,6 +1,6 @@
 /**
  * @file hashtable.c
- * @author dufei@nismail.iie.ac.cn
+ * @author hanjinpeng127@163.com
  * @version 3.1.1284
  */
  
