@@ -32,9 +32,6 @@ int conf_getstr(conf_t *conf, void *section, void *key, char *value, uint32_t le
 int conf_getshort(conf_t *conf, void *section, void *key, uint16_t *value);
 int conf_getint(conf_t *conf, void *section, void *key, int *value);
 int conf_getuint(conf_t *conf, void *section, void *key, uint32_t *value);
-
-int config_init(conf_t *conf);
-
 void conf_destroy(conf_t *conf);
 
 #endif /*_CONF_H_*/

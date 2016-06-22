@@ -18,7 +18,7 @@ SRCS = src/log.c 			\
 	   src/pqueue.c			\
 	   src/conf.c			\
 	   src/conn.c			\
-	   src/log.c			\
+	   src/error.c			\
 	   src/tlv.c			\
 	   src/times.c			\
 	   src/util.c		
@@ -29,7 +29,7 @@ OBJS = objs/log.o 			\
 	   objs/pqueue.o		\
 	   objs/conn.o			\
 	   objs/tlv.o			\
-	   objs/log.o       	\
+	   objs/error.o       	\
 	   objs/conf.o			\
 	   objs/times.o			\
 	   objs/util.o		
@@ -66,6 +66,9 @@ objs/tlv.o : src/tlv.c
 objs/conf.o	: src/conf.c
 	$(CC) -c src/conf.c -o objs/conf.o $(CFLAGS)
 
+objs/error.o	: src/error.c
+	$(CC) -c src/error.c -o objs/error.o $(CFLAGS)
+
 objs/times.o : src/times.c
 	$(CC) -c src/times.c -o objs/times.o $(CFLAGS)
 
@@ -77,9 +80,13 @@ dist :
 
 install : 
 	$(INSTALL) $(LIB_DIR)/$(LIB_OBJ) '/usr/local/lib/'
+	ldconfig
 	$(INSTALL) -d  '/usr/local/include/ccufl/'
 	$(INSTALL) src/*.h  '/usr/local/include/ccufl/'
-
+uninstall:
+	${RM} -fr '/usr/local/include/ccufl'
+	${RM} -f '/usr/local/lib/'$(LIB_OBJ)
+	ldconfig
 clean :
 	$(RM) $(OBJS) 
 	$(RM) $(LIB_OJB)

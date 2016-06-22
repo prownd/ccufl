@@ -225,14 +225,9 @@ int conf_getuint(conf_t *conf, void *section, void *key, uint32_t *value)
 }
 
 #if 0
-int config_init_1(conf_t *conf)
+int config_init_single(conf_t *conf)
 {
 	void *value;
-
-	if(conf == NULL){
-		return -1;
-	}
-
 	value = conf_get(conf, "Generic", "sip");
 	if(value == NULL){
 		return -1;
@@ -247,73 +242,12 @@ int config_init_1(conf_t *conf)
 		g_config.sport = (uint16_t)atoi(value);
 	}
 
-	value = conf_get(conf, "Database", "host");
-	if(value == NULL){
-		return -1;
-	}else{
-		strncpy(g_config.host, (char *)value, 32);
-	}
-
-	value = conf_get(conf, "Database", "port");
-	if(value == NULL){
-		return -1;
-	}else{
-		g_config.port = (uint16_t)atoi(value);
-	}
-
-	value = conf_get(conf, "Database", "dbname");
-	if(value == NULL){
-		return -1;
-	}else{
-		strncpy(g_config.dbname, (char *)value, 32);
-	}
-
-	value = conf_get(conf, "Database", "user");
-	if(value == NULL){
-		return -1;
-	}else{
-		strncpy(g_config.user, (char *)value, 32);
-	}
-
-	value = conf_get(conf, "Database", "passwd");
-	if(value == NULL){
-		return -1;
-	}else{
-		strncpy(g_config.passwd, (char *)value, 32);
-	}
-
-	
-	value = conf_get(conf, "Peers", "dip");
-	if(value == NULL){
-		return -1; 
-	}else{
-		strncpy(g_config.peer_ip, (char *)value, 16);
-	}   
-
-	value = conf_get(conf, "Peers", "dport");
-	if(value == NULL){
-		return -1; 
-	}else{
-		g_config.peer_port = (uint16_t)atoi(value);
-	}   
-	return 0;
 }
-#endif
-
 int config_init(conf_t *conf){
 	int err = 0;
 	char section[64];
 	err = conf_getstr(conf, "Generic", "sip", g_config.sip, 16);
 	err = conf_getshort(conf, "Generic", "sport", &g_config.sport);
-	//err = conf_getuint(conf, "Generic", "WORKERS", &g_config.workers);
-	err = conf_getuint(conf, "Generic", "snd_timeo", &g_config.snd_timeo);
-	err = conf_getuint(conf, "Generic", "rcv_timeo", &g_config.rcv_timeo);
-	err = conf_getuint(conf, "Generic", "peer_num", &g_config.peer_num);
-	err = conf_getstr(conf, "Database", "host", g_config.host,32);
-	err = conf_getshort(conf, "Database", "port", &g_config.port);
-	err = conf_getstr(conf, "Database", "dbname", g_config.dbname,32);
-	err = conf_getstr(conf, "Database", "user", g_config.user,32);
-	err = conf_getstr(conf, "Database", "passwd", g_config.passwd,32);
 	for(int i=0; i<g_config.peer_num; i++){
 		sprintf(section, "Peer%d", i);
 		err = conf_getstr(conf, section, "dip", g_config.peers[i].ip, 16);
@@ -324,6 +258,7 @@ int config_init(conf_t *conf){
 	conf_destroy(conf);
 	return 0;
 }
+#endif
 
 void conf_destroy(conf_t *conf){
 	if(conf->table)

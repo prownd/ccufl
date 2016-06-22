@@ -61,19 +61,19 @@ int log_inner(log_t *log, const char *file, const long line, const char *fmt, ..
 			break;
 		case LOG_DEBUG:
 			strtime(tmstr, sizeof(tmstr));		
-			fprintf(log->fp, "[%s]-DEBUG-%d:%s:%ld", tmstr, getpid(), file, line);
+			fprintf(log->fp, "[%s]-DEBUG-%d :%s :%ld  ", tmstr, getpid(), file, line);
 			break;
 		case LOG_WARN:
 			strtime(tmstr, sizeof(tmstr));		
-			fprintf(log->fp, "[%s]-WARN-%d:%s:%ld", tmstr, getpid(), file, line);
+			fprintf(log->fp, "[%s]-WARN-%d :%s :%ld  ", tmstr, getpid(), file, line);
 			break;
 		case LOG_ERROR:
 			strtime(tmstr, sizeof(tmstr));		
-			fprintf(log->fp, "[%s]-ERROR-%d:%s:%ld", tmstr, getpid(), file, line);
+			fprintf(log->fp, "[%s]-ERROR-%d :%s :%ld  ", tmstr, getpid(), file, line);
 			break;
 		case LOG_INFO:
 			strtime(tmstr, sizeof(tmstr));		
-			fprintf(log->fp, "[%s]-INFO-%d:%s:%ld", tmstr, getpid(), file, line);
+			fprintf(log->fp, "[%s]-INFO-%d :%s :%ld  ", tmstr, getpid(), file, line);
 			break;
 		default:
 			break;
@@ -82,6 +82,8 @@ int log_inner(log_t *log, const char *file, const long line, const char *fmt, ..
 	va_start(args, fmt);
 	vfprintf(log->fp, fmt, args);
 	va_end(args);
+	
+	fprintf(log->fp, "\n");
 
 	fflush(log->fp);
 	return 0;
