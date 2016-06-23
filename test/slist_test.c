@@ -4,9 +4,10 @@ typedef struct node_t {
 	int num;
 	struct node_t * next;
 }node;
+/*
 int cmp(void *source,void*target){
 	return ((node*)source)->num-((node*)target)->num;
-}
+}*/
 void print(void*data){
 	printf("the node num:%d\n",((node*)data)->num);
 }
@@ -18,7 +19,7 @@ int main(int argc,char * argv[]){
 	n1->next=NULL;
 	n2->num=22;
 	n2->next=NULL;
-	slist=slist_create(sizeof(node),NULL,cmp);
+	slist=slist_create(sizeof(node),NULL,NULL);
 	slist_init(slist);
 	slist_append(slist,n1);
 	slist_append(slist,n2);
