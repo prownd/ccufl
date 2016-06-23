@@ -21,7 +21,8 @@ SRCS = src/log.c 			\
 	   src/error.c			\
 	   src/tlv.c			\
 	   src/times.c			\
-	   src/util.c		
+	   src/util.c		    \
+	   src/arraylist.c		
 OBJS = objs/log.o 			\
 	   objs/htab.o			\
 	   objs/hashtable.o		\
@@ -32,7 +33,8 @@ OBJS = objs/log.o 			\
 	   objs/error.o       	\
 	   objs/conf.o			\
 	   objs/times.o			\
-	   objs/util.o		
+	   objs/util.o		    \
+	   objs/arraylist.o		
 
 $(shell  mkdir  -p  ${OBJS_DIR})
 
@@ -74,6 +76,9 @@ objs/times.o : src/times.c
 
 objs/util.o : src/util.c
 	$(CC) -c src/util.c -o objs/util.o $(CFLAGS)
+	
+objs/arraylist.o : src/arraylist.c
+	$(CC) -c src/arraylist.c -o objs/arraylist.o $(CFLAGS)
 	
 dist :
 	cd .. && tar cvzf $(DIR).tar.gz $(DIR)	
