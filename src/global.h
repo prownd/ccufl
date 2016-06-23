@@ -12,7 +12,7 @@ typedef struct
 } ip_tuple_t;
 
 
-struct g_config_s
+typedef struct g_config_s
 {
 	char sip[16];
 	uint16_t sport;
@@ -28,10 +28,8 @@ struct g_config_s
 	
 	uint32_t peer_num;
 	ip_tuple_t peers[10];
-};
+}g_config_t;
 
-typedef struct g_config_s g_config_t;
-extern g_config_t g_config;
 typedef struct conn_s conn_t;
 
 #endif /*_GLOBAL_H_*/

@@ -57,7 +57,7 @@ typedef struct g_config_s
 	tuple_t peers[10];
 } g_config_t;
 
-extern g_config_t g_config;
+g_config_t g_config;
 
 typedef int (*conn_handle_cb)(conn_t *c, int msec);
 

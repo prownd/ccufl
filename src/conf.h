@@ -12,7 +12,6 @@ typedef struct conf_s conf_t;
 typedef void (*conf_cleanup_cb)(conf_t *conf);
 
 
-extern g_config_t g_config;
 
 struct conf_s 
 {

@@ -1,15 +1,20 @@
 #v1
 CC = gcc
 AR=ar rc
+LD=ld
 MV=mv
 INSTALL=install
 DIR=ccufl
 
-CFLAGS = -ggdb3 -Wall -std=gnu99 -D_GNU_SOURCE -DPROV #-DNATION -DFRONT
+
+CFLAGS = -ggdb3 -Wall -fPIC -std=gnu99 -D_GNU_SOURCE -DPROV #-DNATION -DFRONT
+LDFLAGS= -shared
 LIB_DIR = ./lib
 OBJS_DIR=./objs
 
+
 LIB_OBJ=libccufl.a
+SHARE_OBJ=libccufl.so
 INCS = -I src/
 SRCS = src/log.c 			\
 	   src/htab.c			\
@@ -38,7 +43,13 @@ OBJS = objs/log.o 			\
 
 $(shell  mkdir  -p  ${OBJS_DIR})
 
-all: $(LIB_OBJ)
+all: $(SHARE_OBJ) $(LIB_OBJ)
+
+$(SHARE_OBJ):$(OBJS)
+	echo $(OBJS)
+	$(LD) -o $(SHARE_OBJ) $(OBJS) $(LDFLAGS)
+	$(shell mkdir -p ${LIB_DIR})
+	$(MV) $(SHARE_OBJ) $(LIB_DIR)
 
 $(LIB_OBJ):$(OBJS)
 	$(AR) $(LIB_OBJ) $(OBJS)	
@@ -85,6 +96,7 @@ dist :
 
 install : 
 	$(INSTALL) $(LIB_DIR)/$(LIB_OBJ) '/usr/local/lib/'
+	$(INSTALL) $(LIB_DIR)/$(SHARE_OBJ) '/usr/local/lib/'
 	ldconfig
 	$(INSTALL) -d  '/usr/local/include/ccufl/'
 	$(INSTALL) src/*.h  '/usr/local/include/ccufl/'
