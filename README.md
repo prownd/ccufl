@@ -10,43 +10,29 @@ make install
 #example  
 a hello.c example  
 ```c
-#include <string.h>
 #include <stdio.h>
-#include <stdlib.h>
-#include "hashtable.h"
-static const int ITEM_COUNT = 5;
-typedef struct _value_{
-	unsigned int key;
-	unsigned short value;
-	struct _value_ *next;
-}value_t;
-static unsigned int hashkey(void *key){
-    value_t *k = (value_t*)key;
-	register unsigned int hash=0;
-    hash = (((k->key<< 17) | (k->key>> 15)) ^ k->value);
-	return (hash);
+#include "slist.h"
+typedef struct node_t {
+	int num;
+	struct node_t * next;
+}node;
+void print(void*data){
+	printf("the node num:%d\n",((node*)data)->num);
 }
-static void value_print(void *key){
-	value_t *k = (value_t*)key;
-	printf("\t[%u,%hu]\n",k->key,k->value);
-}
-int main(int argc, char **argv){
-	int i=0;
-	void *found=NULL;
-	value_t *k=NULL,v;
-	hashtable_t *h=NULL;
-	h=(hashtable_t*)hashtable_create(ITEM_COUNT,sizeof(value_t),NULL,hashkey,NULL);
-	for (i = 0; i < ITEM_COUNT; i++){
-		k = (value_t *)calloc(1,sizeof(value_t));
-		if (NULL == k) 	return 1;
-		k->key= 0xcfccee40 + i;
-		k->value= 0xcf0cee67 - (5 * i);
-		if(hashtable_insert(h,k))  break;	
-	}
-	hashtable_show(h,value_print);
-	hashtable_free(h);
-	h=NULL;
-	return 0;	
+int main(int argc,char * argv[]){
+	slist_t * slist=NULL;
+	node* n1=(node*)malloc(sizeof(node));
+	node* n2=(node*)malloc(sizeof(node));
+	n1->num=11;
+	n1->next=NULL;
+	n2->num=22;
+	n2->next=NULL;
+	slist=slist_create(sizeof(node),NULL,NULL);
+	slist_init(slist);
+	slist_append(slist,n1);
+	slist_append(slist,n2);
+	slist_traverse(slist,print,0,slist_count(slist)-1);
+	slist_free(slist);
 }
 ```
 gcc hello.c -o hello -I/include_path -L/lib_path/ -lccufl 
