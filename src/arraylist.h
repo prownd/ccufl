@@ -1,5 +1,5 @@
-#ifndef _arraylist_h
-#define _arraylist_h
+#ifndef _ARRAYLIST_H_
+#define _ARRAYLIST_H_
 #include <stdlib.h>
 #include <stdio.h>
 
@@ -36,4 +36,4 @@ void arraylist_clear(arraylist *array);
 
 void arraylist_sort(const arraylist *array, const int (*compare)(const void* obj1, const void * obj2));
 
-#endif /* _arraylist_h */
+#endif /* _ARRAYLIST_H_ */

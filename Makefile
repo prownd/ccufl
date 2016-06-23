@@ -46,7 +46,6 @@ $(shell  mkdir  -p  ${OBJS_DIR})
 all: $(SHARE_OBJ) $(LIB_OBJ)
 
 $(SHARE_OBJ):$(OBJS)
-	echo $(OBJS)
 	$(LD) -o $(SHARE_OBJ) $(OBJS) $(LDFLAGS)
 	$(shell mkdir -p ${LIB_DIR})
 	$(MV) $(SHARE_OBJ) $(LIB_DIR)
