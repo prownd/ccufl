@@ -69,15 +69,11 @@ void pqueue_free(pqueue_t *pq)
  *
  *
  */
-int pqueue_count(pqueue_t *pq)
-{
+int pqueue_count(pqueue_t *pq){
 	int count = 0;
-
 	if(pq == NULL)
 		return -1;
-
 	count = pq->len;
-
 	return count;
 }
 
@@ -88,20 +84,18 @@ int pqueue_count(pqueue_t *pq)
  * 0: fail, is full
  * 1: success
  */
-int pqueue_addone(pqueue_t *pq, void *node)
-{	
+
+int pqueue_addone(pqueue_t *pq, void *node){	
 	pthread_spin_lock(&pq->lock);	
 	if((pq->top+1)%pq->maxlen==pq->tail){
 		pthread_spin_unlock(&pq->lock);
 	    return 0;
 	}
-
-    *(unsigned long *)(pq->pq+pq->top*pq->nodesize)=(unsigned long)node;
-    pq->top=(pq->top+1)%pq->maxlen;
-    pq->len++;
+	*(unsigned long *)(pq->pq+pq->top*pq->nodesize)=(unsigned long)node;
+    	pq->top=(pq->top+1)%pq->maxlen;
+    	pq->len++;
 	pthread_spin_unlock(&pq->lock);
- 
-    return 1;
+    	return 1;
 }
 
 /*****************************************************************************/
@@ -110,8 +104,7 @@ int pqueue_addone(pqueue_t *pq, void *node)
  * NULL: fail, error or null
  * NOT NULL: success
  */
-void *pqueue_getone(pqueue_t *pq)
-{
+void *pqueue_getone(pqueue_t *pq){
 	void *pone;
 
 	pthread_spin_lock(&pq->lock);
@@ -126,6 +119,4 @@ void *pqueue_getone(pqueue_t *pq)
 	pthread_spin_unlock(&pq->lock);
 	return pone;
 }
-
 /*********************************************************************/
-
