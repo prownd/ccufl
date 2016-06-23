@@ -37,3 +37,6 @@ int main(int argc,char * argv[]){
 ```
 gcc hello.c -o hello -I/include_path -L/lib_path/ -lccufl 
 
+#contact me
+found a bug? have an awesome idea? post on this github page or mail to me	
+email  :  <545751287@qq.com> 
