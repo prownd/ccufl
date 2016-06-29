@@ -30,7 +30,10 @@ SRCS = src/log.c 			\
 	   src/arraylist.c		\
 	   src/stack.c			\
 	   src/tree.c                   \
-	   src/md5.c
+	   src/md5.c			\
+	   src/sha1.c			\
+	   src/sha256.c			\
+	   src/base64.c
 OBJS = objs/log.o 			\
 	   objs/htab.o			\
 	   objs/hashtable.o		\
@@ -45,7 +48,10 @@ OBJS = objs/log.o 			\
 	   objs/arraylist.o		\
 	   objs/stack.o		    	\
 	   objs/tree.o			\
-	   objs/md5.o		    	
+	   objs/md5.o		    	\
+	   objs/sha1.o			\
+	   objs/sha256.o		\
+	   objs/base64.o		
 
 $(shell  mkdir  -p  ${OBJS_DIR})
 
@@ -105,6 +111,15 @@ objs/tree.o : src/tree.c
 objs/md5.o : src/md5.c
 	$(CC) -c src/md5.c -o objs/md5.o $(CFLAGS)
 	
+objs/sha1.o : src/sha1.c
+	$(CC) -c src/sha1.c -o objs/sha1.o $(CFLAGS)
+
+objs/sha256.o : src/sha256.c
+	$(CC) -c src/sha256.c -o objs/sha256.o $(CFLAGS)
+
+objs/base64.o : src/base64.c
+	$(CC) -c src/base64.c -o objs/base64.o $(CFLAGS)
+
 dist :
 	cd .. && tar cvzf $(DIR).tar.gz $(DIR)	
 
