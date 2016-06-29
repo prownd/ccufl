@@ -38,5 +38,5 @@ int main(int argc,char * argv[]){
 gcc hello.c -o hello -I/include_path -L/lib_path/ -lccufl 
 
 #contact me
-have problem? or have an awesome idea? post on this github issue page ,you can mail to me if you want .
+have problem? or have an awesome idea? post on this github issue page ,you can mail to me if you want .   
 Email  :  <545751287@qq.com> 
