@@ -1,5 +1,5 @@
 #ccufl
-c common use function library  
+c common use function library,contain some frequently use function. eg :hashtable,linklist,array and so on.
   
   
 #compile and install  
@@ -38,5 +38,5 @@ int main(int argc,char * argv[]){
 gcc hello.c -o hello -I/include_path -L/lib_path/ -lccufl 
 
 #contact me
-found a bug? have an awesome idea? post on this github page or mail to me	
-email  :  <545751287@qq.com> 
+have problem? or have an awesome idea? post on this github issue page ,if you want you can mail to me	
+Email  :  <545751287@qq.com> 
