@@ -29,7 +29,8 @@ SRCS = src/log.c 			\
 	   src/util.c		    	\
 	   src/arraylist.c		\
 	   src/stack.c			\
-	   src/tree.c
+	   src/tree.c                   \
+	   src/md5.c
 OBJS = objs/log.o 			\
 	   objs/htab.o			\
 	   objs/hashtable.o		\
@@ -43,7 +44,8 @@ OBJS = objs/log.o 			\
 	   objs/util.o		    	\
 	   objs/arraylist.o		\
 	   objs/stack.o		    	\
-	   objs/tree.o
+	   objs/tree.o			\
+	   objs/md5.o		    	
 
 $(shell  mkdir  -p  ${OBJS_DIR})
 
@@ -99,6 +101,9 @@ objs/stack.o : src/stack.c
 
 objs/tree.o : src/tree.c
 	$(CC) -c src/tree.c -o objs/tree.o $(CFLAGS)
+
+objs/md5.o : src/md5.c
+	$(CC) -c src/md5.c -o objs/md5.o $(CFLAGS)
 	
 dist :
 	cd .. && tar cvzf $(DIR).tar.gz $(DIR)	
@@ -112,6 +117,7 @@ install :
 uninstall:
 	${RM} -fr '/usr/local/include/ccufl'
 	${RM} -f '/usr/local/lib/'$(LIB_OBJ)
+	${RM} -f '/usr/local/lib/'$(SHARE_OBJ)
 	ldconfig
 clean :
 	$(RM) $(OBJS) 
