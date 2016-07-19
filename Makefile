@@ -26,14 +26,16 @@ SRCS = src/log.c 			\
 	   src/error.c			\
 	   src/tlv.c			\
 	   src/times.c			\
-	   src/util.c		    	\
+	   src/util.c		    \
 	   src/arraylist.c		\
 	   src/stack.c			\
-	   src/tree.c                   \
+	   src/tree.c           \
 	   src/md5.c			\
 	   src/sha1.c			\
 	   src/sha256.c			\
-	   src/base64.c
+	   src/base64.c			\
+	   src/adlist.c			\
+	   src/sds.c
 OBJS = objs/log.o 			\
 	   objs/htab.o			\
 	   objs/hashtable.o		\
@@ -41,17 +43,19 @@ OBJS = objs/log.o 			\
 	   objs/pqueue.o		\
 	   objs/conn.o			\
 	   objs/tlv.o			\
-	   objs/error.o       		\
+	   objs/error.o       	\
 	   objs/conf.o			\
 	   objs/times.o			\
-	   objs/util.o		    	\
+	   objs/util.o		   	\
 	   objs/arraylist.o		\
-	   objs/stack.o		    	\
+	   objs/stack.o		   	\
 	   objs/tree.o			\
-	   objs/md5.o		    	\
+	   objs/md5.o		   	\
 	   objs/sha1.o			\
 	   objs/sha256.o		\
-	   objs/base64.o		
+	   objs/base64.o		\
+	   objs/adlist.o		\
+	   objs/sds.o		
 
 $(shell  mkdir  -p  ${OBJS_DIR})
 
@@ -119,6 +123,12 @@ objs/sha256.o : src/sha256.c
 
 objs/base64.o : src/base64.c
 	$(CC) -c src/base64.c -o objs/base64.o $(CFLAGS)
+
+objs/adlist.o : src/adlist.c
+	$(CC) -c src/adlist.c -o objs/adlist.o $(CFLAGS)
+
+objs/sds.o : src/sds.c
+	$(CC) -c src/sds.c -o objs/sds.o $(CFLAGS)
 
 dist :
 	cd .. && tar cvzf $(DIR).tar.gz $(DIR)	
