@@ -133,6 +133,11 @@ objs/sds.o : src/sds.c
 dist :
 	cd .. && tar cvzf $(DIR).tar.gz $(DIR)	
 
+rpm:
+	make clean
+	tar -zcvf ccufl-1.0.tar.gz  ../ccufl/Makefile  ../ccufl/src/ ../ccufl/test ../ccufl/README.md ../ccufl/ccufl.spec
+	rpmbuild -ta ccufl-1.0.tar.gz 
+
 install : 
 	$(INSTALL) $(LIB_DIR)/$(LIB_OBJ) '/usr/local/lib/'
 	$(INSTALL) $(LIB_DIR)/$(SHARE_OBJ) '/usr/local/lib/'
