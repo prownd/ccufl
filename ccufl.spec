@@ -1,11 +1,12 @@
 %define __debug_install_post   \
 		   %{_rpmconfigdir}/find-debuginfo.sh %{?_find_debuginfo_opts} "%{_builddir}/%{?buildsubdir}"\
 %{nil}
+%define _rpmdir  ./
 Summary:        ccufl library
 Name:           ccufl
 Version:        1.0
 Release:        0
-License:        MIT
+License:        LGPL
 Group:          System Environment/Base
 URL:            http://www.github.com/prownd
 Source:         %{name}-%{version}.tar.gz
@@ -16,8 +17,9 @@ Provides:       ccufl
 %description
 ccufl common c library.
 
-
 %prep
+install -d -p %{_rpmdir}
+
 %setup -q -n ccufl
 
 %build
