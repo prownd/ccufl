@@ -1,6 +1,6 @@
 #ccufl
-c common use function library,contain some frequently use function. eg :hashtable,linklist,array, dynamic string ,dict and so on.
-一个c的公共函数库 ，包括一些常用的函数和库，例如 hash表，链表，数组，字典，字符串等等  
+c common use function library,contain some frequently use function. eg :hashtable,linklist,array, dynamic string ,dict and so on.    
+一个c的公共函数库 ，包括一些常用的函数和库，例如 hash表，链表，数组，字典，字符串等等    
   
   
 #compile and install  
