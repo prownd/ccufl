@@ -8,18 +8,22 @@ now ,compile
 进行编译  
 
 
+
 make  
 make install  
   
   
+  
 make dist  
 this step can generate dist tar package.  
-这一操作能生成 tar 包  
+生成 tar 包  
+  
   
 make rpm  
 generate  rpm package  
-能生成rpm 二进制包  
+生成rpm 二进制包  
 
+  
   
 #example
 下面是一个hello 例子  
