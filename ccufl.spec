@@ -41,5 +41,5 @@ install -p src/*.h $RPM_BUILD_ROOT/usr/local/include/ccufl/
 
 
 %changelog
-* Fri Jul 22 2016 jinpeng han <545751287@qq.com> - 1-1
+* Fri Jul 22 2016 jinpeng han <545751287@qq.com> - 1-0
 - gen ccufl rpm pkg
