@@ -35,7 +35,8 @@ SRCS = src/log.c 			\
 	   src/sha256.c			\
 	   src/base64.c			\
 	   src/adlist.c			\
-	   src/sds.c
+	   src/sds.c			\
+	   src/ssort.c
 OBJS = objs/log.o 			\
 	   objs/htab.o			\
 	   objs/hashtable.o		\
@@ -55,7 +56,8 @@ OBJS = objs/log.o 			\
 	   objs/sha256.o		\
 	   objs/base64.o		\
 	   objs/adlist.o		\
-	   objs/sds.o		
+	   objs/sds.o			\
+	   objs/ssort.o			\
 
 $(shell  mkdir  -p  ${OBJS_DIR})
 
@@ -130,6 +132,9 @@ objs/adlist.o : src/adlist.c
 objs/sds.o : src/sds.c
 	$(CC) -c src/sds.c -o objs/sds.o $(CFLAGS)
 
+objs/ssort.o : src/ssort.c
+	$(CC) -c src/ssort.c -o objs/ssort.o $(CFLAGS)
+
 dist :
 	cd .. && tar cvzf $(DIR).tar.gz $(DIR)	
 
@@ -154,6 +159,3 @@ clean :
 	$(RM) $(LIB_OJB)
 	$(RM) -fr $(LIB_DIR)
 	$(RM) -fr $(OBJS_DIR)
-
-
-
