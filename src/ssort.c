@@ -30,6 +30,24 @@ void bubble_sort(void* data,int len,int size,int(*compare)(const void*,const voi
     free(temp);
 }
 
+void insert_sort(void* data,int len,int size, int(*compare)(const void*,const void*)){
+#ifdef PRINT_FUNCTION_NAME
+    printf("%s\n",__FUNCTION__);
+#endif
+    int i,j;
+    void *temp=malloc(size);
+	for(i=1;i<len;i++)
+	{
+		memcpy(temp,data+i*size,size);
+		for(j=i;j>0&&(compare(temp,data+(j-1)*size)<0);j--)
+		{
+            memcpy(data+j*size,data+(j-1)*size,size);
+		}
+		memcpy(data+j*size,temp,size);
+	}
+    free(temp);
+}
+
 void quick_sort_partition(void * base,size_t left,size_t right,size_t size,int(* compare)(const void *,const void *)){
 	size_t p=(left+right)/2;
 	void * pivot=malloc(size);
