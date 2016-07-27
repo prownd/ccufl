@@ -18,14 +18,14 @@ void bubble_sort(void* data,int len,int size,int(*compare)(const void*,const voi
 		{
 			if(compare(data+j*size,data+(j+1)*size)>0)
 			{
-	            memcpy(temp,data+j*size,size);
-	            memcpy(data+j*size,data+(j+1)*size,size);
-	            memcpy(data+(j+1)*size,temp,size);
+				memcpy(temp,data+j*size,size);
+				memcpy(data+j*size,data+(j+1)*size,size);
+				memcpy(data+(j+1)*size,temp,size);
 				ordered=0;
 			}
 		}
 		if(ordered)
-				break;
+			break;
 	}
     free(temp);
 }
@@ -41,7 +41,7 @@ void insert_sort(void* data,int len,int size, int(*compare)(const void*,const vo
 		memcpy(temp,data+i*size,size);
 		for(j=i;j>0&&(compare(temp,data+(j-1)*size)<0);j--)
 		{
-            memcpy(data+j*size,data+(j-1)*size,size);
+        		memcpy(data+j*size,data+(j-1)*size,size);
 		}
 		memcpy(data+j*size,temp,size);
 	}
