@@ -32,6 +32,8 @@ int main(){
         int na[]={34,56,17,88,41,69,24,73,81,6};
 #if defined BUBBLE_SORT
 		bubble_sort(na,sizeof(na)/sizeof(na[0]),sizeof(na[0]),compare_int);
+#elif defined INSERT_SORT        
+		insert_sort(na,sizeof(na)/sizeof(na[0]),sizeof(na[0]),compare_int);
 #elif defined QUICK_SORT
 		quick_sort(na,sizeof(na)/sizeof(na[0]),sizeof(na[0]),compare_int);
 #endif
@@ -42,6 +44,8 @@ int main(){
         char * pa[]={"beijing","shanghai","washingtons","seattle"};
 #if defined BUBBLE_SORT
 		bubble_sort(pa,sizeof(pa)/sizeof(pa[0]),sizeof(pa[0]),compare_string);
+#elif defined INSERT_SORT        
+		insert_sort(pa,sizeof(pa)/sizeof(pa[0]),sizeof(pa[0]),compare_string);
 #elif defined QUICK_SORT
 		quick_sort(pa,sizeof(pa)/sizeof(pa[0]),sizeof(pa[0]),compare_string);
 #endif
@@ -52,6 +56,8 @@ int main(){
 		struct Persion sa[]={{"jime",22},{"peter",23},{"hanks",20},{"linda",26}};
 #if defined BUBBLE_SORT
 		bubble_sort(sa,sizeof(sa)/sizeof(sa[0]),sizeof(sa[0]),compare_persion);
+#elif defined INSERT_SORT        
+		insert_sort(sa,sizeof(sa)/sizeof(sa[0]),sizeof(sa[0]),compare_persion);
 #elif defined QUICK_SORT
 		quick_sort(sa,sizeof(sa)/sizeof(sa[0]),sizeof(sa[0]),compare_persion);
 #endif
