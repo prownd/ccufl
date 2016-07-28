@@ -48,6 +48,32 @@ void insert_sort(void* data,int len,int size, int(*compare)(const void*,const vo
     free(temp);
 }
 
+void select_sort(void * data,int len,int size,int(*compare)(const void*,const void*)){
+#ifdef PRINT_FUNCTION_NAME
+    printf("%s\n",__FUNCTION__);
+#endif
+    int i,j;
+    void *temp=malloc(size);
+	for(i=0;i<len-1;i++)
+	{
+		int min=i;
+		for(j=i+1;j<len;j++)
+		{
+			if((compare(data+min*size,data+j*size)>=0))
+			{
+				min=j;
+			}
+		}
+		if(min!=i)
+		{
+			memcpy(temp,data+i*size,size);
+			memcpy(data+i*size,data+min*size,size);
+			memcpy(data+min*size,temp,size);
+		}
+	}
+	free(temp);
+}
+
 void quick_sort_partition(void * base,size_t left,size_t right,size_t size,int(* compare)(const void *,const void *)){
 	size_t p=(left+right)/2;
 	void * pivot=malloc(size);
