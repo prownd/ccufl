@@ -26,44 +26,50 @@ int compare_persion(const void * pv1,const void* pv2){
 }
 
 //#define BUBBLE_SORT
-//gcc  ssort_test.c  -DPRINT_FUNCTION_NAME -DBUBBLE_SORT
+//gcc  ssort_test.c  -DPRINT_FUNCTION_NAME -DSELECT_SORT
 int main(){
-	int i;
+		int i;
         int na[]={34,56,17,88,41,69,24,73,81,6};
 #if defined BUBBLE_SORT
-	bubble_sort(na,sizeof(na)/sizeof(na[0]),sizeof(na[0]),compare_int);
+		bubble_sort(na,sizeof(na)/sizeof(na[0]),sizeof(na[0]),compare_int);
 #elif defined INSERT_SORT        
-	insert_sort(na,sizeof(na)/sizeof(na[0]),sizeof(na[0]),compare_int);
+		insert_sort(na,sizeof(na)/sizeof(na[0]),sizeof(na[0]),compare_int);
+#elif defined SELECT_SORT
+		select_sort(na,sizeof(na)/sizeof(na[0]),sizeof(na[0]),compare_int);
 #elif defined QUICK_SORT
-	quick_sort(na,sizeof(na)/sizeof(na[0]),sizeof(na[0]),compare_int);
+		quick_sort(na,sizeof(na)/sizeof(na[0]),sizeof(na[0]),compare_int);
 #endif
-	for(i=0;i<sizeof(na)/sizeof(na[0]);i++)
-			printf("%d ",na[i]);
-	printf("\n");
-	
-	char * pa[]={"beijing","shanghai","washingtons","seattle"};
+		for(i=0;i<sizeof(na)/sizeof(na[0]);i++)
+				printf("%d ",na[i]);
+		printf("\n");
+		
+        char * pa[]={"beijing","shanghai","washingtons","seattle"};
 #if defined BUBBLE_SORT
-	bubble_sort(pa,sizeof(pa)/sizeof(pa[0]),sizeof(pa[0]),compare_string);
+		bubble_sort(pa,sizeof(pa)/sizeof(pa[0]),sizeof(pa[0]),compare_string);
 #elif defined INSERT_SORT        
-	insert_sort(pa,sizeof(pa)/sizeof(pa[0]),sizeof(pa[0]),compare_string);
+		insert_sort(pa,sizeof(pa)/sizeof(pa[0]),sizeof(pa[0]),compare_string);
+#elif defined SELECT_SORT
+		select_sort(pa,sizeof(pa)/sizeof(pa[0]),sizeof(pa[0]),compare_string);
 #elif defined QUICK_SORT
-	quick_sort(pa,sizeof(pa)/sizeof(pa[0]),sizeof(pa[0]),compare_string);
+		quick_sort(pa,sizeof(pa)/sizeof(pa[0]),sizeof(pa[0]),compare_string);
 #endif
-	for(i=0;i<sizeof(pa)/sizeof(pa[0]);i++)
-			printf("%s ",pa[i]);
-	printf("\n");
+		for(i=0;i<sizeof(pa)/sizeof(pa[0]);i++)
+				printf("%s ",pa[i]);
+		printf("\n");
 
-	struct Persion sa[]={{"jime",22},{"peter",23},{"hanks",20},{"linda",26}};
+		struct Persion sa[]={{"jime",22},{"peter",23},{"hanks",20},{"linda",26}};
 #if defined BUBBLE_SORT
-	bubble_sort(sa,sizeof(sa)/sizeof(sa[0]),sizeof(sa[0]),compare_persion);
+		bubble_sort(sa,sizeof(sa)/sizeof(sa[0]),sizeof(sa[0]),compare_persion);
 #elif defined INSERT_SORT        
-	insert_sort(sa,sizeof(sa)/sizeof(sa[0]),sizeof(sa[0]),compare_persion);
+		insert_sort(sa,sizeof(sa)/sizeof(sa[0]),sizeof(sa[0]),compare_persion);
+#elif defined SELECT_SORT
+		select_sort(sa,sizeof(sa)/sizeof(sa[0]),sizeof(sa[0]),compare_persion);
 #elif defined QUICK_SORT
-	quick_sort(sa,sizeof(sa)/sizeof(sa[0]),sizeof(sa[0]),compare_persion);
+		quick_sort(sa,sizeof(sa)/sizeof(sa[0]),sizeof(sa[0]),compare_persion);
 #endif
-	for(i=0;i<sizeof(sa)/sizeof(sa[0]);i++)
-			printf(" %s,%d ",sa[i].name,sa[i].age);
-	printf("\n");
+		for(i=0;i<sizeof(sa)/sizeof(sa[0]);i++)
+				printf(" %s,%d ",sa[i].name,sa[i].age);
+		printf("\n");
 		
         return 0;
 }
