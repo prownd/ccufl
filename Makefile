@@ -11,6 +11,7 @@ CFLAGS = -ggdb3 -Wall -fPIC -std=gnu99 -D_GNU_SOURCE -DPROV #-DNATION -DFRONT
 LDFLAGS= -shared
 LIB_DIR = ./lib
 OBJS_DIR=./objs
+BUILD_DEB_TMP_DIR=./build_deb_tmp_dir
 
 
 LIB_OBJ=libccufl.a
@@ -147,6 +148,19 @@ rpm:
 	make clean
 	tar -zcvf ccufl-1.0.tar.gz  ../ccufl/Makefile  ../ccufl/src/ ../ccufl/test ../ccufl/README.md ../ccufl/ccufl.spec
 	rpmbuild -ta ccufl-1.0.tar.gz 
+deb:
+	make
+	$(INSTALL) -d $(BUILD_DEB_TMP_DIR)
+	$(INSTALL) -d  $(BUILD_DEB_TMP_DIR)/'usr/local/lib/'
+	$(INSTALL) $(LIB_DIR)/$(LIB_OBJ) $(BUILD_DEB_TMP_DIR)/'usr/local/lib/'
+	$(INSTALL) $(LIB_DIR)/$(SHARE_OBJ) $(BUILD_DEB_TMP_DIR)/'usr/local/lib/'
+	$(INSTALL) -d  $(BUILD_DEB_TMP_DIR)/'usr/local/include/ccufl/'
+	$(INSTALL) src/*.h  $(BUILD_DEB_TMP_DIR)/'usr/local/include/ccufl/'
+	$(INSTALL) -d $(BUILD_DEB_TMP_DIR)/'DEBIAN'
+	$(INSTALL) ccufl.control  $(BUILD_DEB_TMP_DIR)/'DEBIAN'/control
+	dpkg  -b $(BUILD_DEB_TMP_DIR) libccufl_1.0.0.deb
+	$(RM) -rf $(BUILD_DEB_TMP_DIR)
+	make clean
 
 install : 
 	$(INSTALL) $(LIB_DIR)/$(LIB_OBJ) '/usr/local/lib/'
