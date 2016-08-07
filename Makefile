@@ -159,7 +159,9 @@ deb:
 	$(INSTALL) src/*.h  $(BUILD_DEB_TMP_DIR)/'usr/local/include/ccufl/'
 	$(INSTALL) -d $(BUILD_DEB_TMP_DIR)/'DEBIAN'
 	$(INSTALL) deb_pkg/ccufl.control  $(BUILD_DEB_TMP_DIR)/'DEBIAN'/control
-	$(INSTALL) deb_pkg/ccufl_changelog  $(BUILD_DEB_TMP_DIR)/'DEBIAN'/changelog
+	$(INSTALL) -d $(BUILD_DEB_TMP_DIR)/usr/share/doc/libccufl
+	$(INSTALL) deb_pkg/ccufl_changelog  $(BUILD_DEB_TMP_DIR)/usr/share/dock/libccufl/changelog
+	gzip --best $(BUILD_DEB_TMP_DIR)/usr/share/doc/libccufl/changelog
 	dpkg  -b $(BUILD_DEB_TMP_DIR) libccufl_1.0.0-1_amd64.deb
 	$(RM) -rf $(BUILD_DEB_TMP_DIR)
 	make clean
