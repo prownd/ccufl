@@ -146,8 +146,9 @@ dist :
 
 rpm:
 	make clean
-	tar -zcvf ccufl-1.0.tar.gz  ../ccufl/Makefile  ../ccufl/src/ ../ccufl/test ../ccufl/README.md ../ccufl/ccufl.spec
+	tar -zcvf ccufl-1.0.tar.gz  ../ccufl/Makefile  ../ccufl/src/ ../ccufl/test ../ccufl/README.md ../ccufl/rpm_pkg/ccufl.spec
 	rpmbuild -ta ccufl-1.0.tar.gz 
+	$(RM) -f ccufl-1.0.tar.gz 
 deb:
 	make
 	$(INSTALL) -d $(BUILD_DEB_TMP_DIR)
@@ -157,7 +158,8 @@ deb:
 	$(INSTALL) -d  $(BUILD_DEB_TMP_DIR)/'usr/local/include/ccufl/'
 	$(INSTALL) src/*.h  $(BUILD_DEB_TMP_DIR)/'usr/local/include/ccufl/'
 	$(INSTALL) -d $(BUILD_DEB_TMP_DIR)/'DEBIAN'
-	$(INSTALL) ccufl.control  $(BUILD_DEB_TMP_DIR)/'DEBIAN'/control
+	$(INSTALL) deb_pkg/ccufl.control  $(BUILD_DEB_TMP_DIR)/'DEBIAN'/control
+	$(INSTALL) deb_pkg/ccufl_changelog  $(BUILD_DEB_TMP_DIR)/'DEBIAN'/changelog
 	dpkg  -b $(BUILD_DEB_TMP_DIR) libccufl_1.0.0-1_amd64.deb
 	$(RM) -rf $(BUILD_DEB_TMP_DIR)
 	make clean
