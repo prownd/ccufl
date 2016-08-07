@@ -158,7 +158,7 @@ deb:
 	$(INSTALL) src/*.h  $(BUILD_DEB_TMP_DIR)/'usr/local/include/ccufl/'
 	$(INSTALL) -d $(BUILD_DEB_TMP_DIR)/'DEBIAN'
 	$(INSTALL) ccufl.control  $(BUILD_DEB_TMP_DIR)/'DEBIAN'/control
-	dpkg  -b $(BUILD_DEB_TMP_DIR) libccufl_1.0.0.deb
+	dpkg  -b $(BUILD_DEB_TMP_DIR) libccufl_1.0.0-1_amd64.deb
 	$(RM) -rf $(BUILD_DEB_TMP_DIR)
 	make clean
 
