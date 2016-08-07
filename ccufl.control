@@ -1,7 +1,0 @@
-Package:libccufl
-Version:1.0.0
-Section:utils
-Priority:optional
-Architecture:amd64
-Maintainer:prowndhan 545751287@qq.com
-Description: a common c use function library
