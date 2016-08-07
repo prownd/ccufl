@@ -23,6 +23,10 @@ make rpm
 generate  rpm package  
 生成rpm 二进制包  
 
+
+make deb
+generate debinan package ,fit for debian/ubuntu serial os.
+
   
   
 #example
