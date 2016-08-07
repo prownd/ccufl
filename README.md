@@ -19,16 +19,16 @@ this step can generate dist tar package.
 生成 tar 包  
   
   
-make rpm  
-generate  rpm package  
-生成rpm 二进制包  
-
-
-make deb
-generate debinan package ,fit for debian/ubuntu serial os.
-
-  
-  
+make rpm    
+generate  rpm package    
+生成rpm 二进制包    
+    
+   
+make deb    
+generate debinan package ,fit for debian/ubuntu serial os.  
+     
+     
+     
 #example
 下面是一个hello 例子  
 a hello.c example  
