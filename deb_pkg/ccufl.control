@@ -1,6 +1,6 @@
 Package:libccufl
 Version:1.0.0
-Section:utils
+Section:libs
 Priority:optional
 Architecture:amd64
 Maintainer:prowndhan 545751287@qq.com
