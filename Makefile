@@ -5,6 +5,8 @@ LD=ld
 MV=mv
 INSTALL=install
 DIR=ccufl
+MAKE=make
+LDCONFIG=ldconfig
 
 
 CFLAGS = -ggdb3 -Wall -fPIC -std=gnu99 -D_GNU_SOURCE -DPROV #-DNATION -DFRONT
@@ -145,12 +147,12 @@ dist :
 	cd .. && tar cvzf $(DIR).tar.gz $(DIR)	
 
 rpm:
-	make clean
+	$(MAKE) clean
 	tar -zcvf ccufl-1.0.tar.gz  ../ccufl/Makefile  ../ccufl/src/ ../ccufl/test ../ccufl/README.md ../ccufl/rpm_pkg/ccufl.spec
 	rpmbuild -ta ccufl-1.0.tar.gz 
 	$(RM) -f ccufl-1.0.tar.gz 
 deb:
-	make
+	$(MAKE)
 	$(INSTALL) -d $(BUILD_DEB_TMP_DIR)
 	$(INSTALL) -d  $(BUILD_DEB_TMP_DIR)/'usr/local/lib/'
 	$(INSTALL) $(LIB_DIR)/$(LIB_OBJ) $(BUILD_DEB_TMP_DIR)/'usr/local/lib/'
@@ -164,19 +166,19 @@ deb:
 	gzip --best $(BUILD_DEB_TMP_DIR)/usr/share/doc/libccufl/changelog
 	dpkg  -b $(BUILD_DEB_TMP_DIR) libccufl_1.0.0-1_amd64.deb
 	$(RM) -rf $(BUILD_DEB_TMP_DIR)
-	make clean
+	$(MAKE) clean
 
 install : 
 	$(INSTALL) $(LIB_DIR)/$(LIB_OBJ) '/usr/local/lib/'
 	$(INSTALL) $(LIB_DIR)/$(SHARE_OBJ) '/usr/local/lib/'
-	ldconfig
+	$(LDCONFIG)
 	$(INSTALL) -d  '/usr/local/include/ccufl/'
 	$(INSTALL) src/*.h  '/usr/local/include/ccufl/'
 uninstall:
 	${RM} -fr '/usr/local/include/ccufl'
 	${RM} -f '/usr/local/lib/'$(LIB_OBJ)
 	${RM} -f '/usr/local/lib/'$(SHARE_OBJ)
-	ldconfig
+	$(LDCONFIG)
 clean :
 	$(RM) $(OBJS) 
 	$(RM) $(LIB_OJB)
