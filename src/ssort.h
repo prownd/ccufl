@@ -1,3 +1,10 @@
+/**
+ * @file ssort.h
+ * @time 2015-6-21
+ * @author hanjinpeng127@163.com
+ * @version 1.0
+ */
+ 
 #ifndef _SSORT_H_
 #define _SSORT_H_
 
