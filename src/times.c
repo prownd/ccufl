@@ -1,3 +1,10 @@
+/**
+ * @file time.c
+ * @time 2015-5-15
+ * @author hanjinpeng127@163.com
+ * @version 1.1
+ */
+
 #include <sys/time.h>
 #include <time.h>
 #include <stdint.h>
