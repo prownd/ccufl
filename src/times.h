@@ -1,3 +1,10 @@
+/**
+ * @file time.h
+ * @time 2015-5-15
+ * @author hanjinpeng127@163.com
+ * @version 1.1
+ */
+ 
 #ifndef _TIMES_H_
 #define _TIMES_H_
 
