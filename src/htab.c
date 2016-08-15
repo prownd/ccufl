@@ -1,3 +1,10 @@
+/**
+ * @file htab.c
+ * @time 2015-9-12
+ * @author hanjinpeng127@163.com
+ * @version 1.0
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
