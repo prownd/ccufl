@@ -1,3 +1,10 @@
+/**
+ * @file htab.h
+ * @time 2015-9-12
+ * @author hanjinpeng127@163.com
+ * @version 1.0
+ */
+
 #ifndef _HTAB_H_
 #define _HTAB_H_
 
