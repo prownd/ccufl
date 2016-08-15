@@ -1,3 +1,10 @@
+/**
+ * @file ssort.c
+ * @time 2015-6-21
+ * @author hanjinpeng127@163.com
+ * @version 1.0
+ */
+ 
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
