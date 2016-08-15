@@ -1,3 +1,10 @@
+/**
+ * @file util.c
+ * @time 2015-10-16
+ * @author hanjinpeng127@163.com
+ * @version 1.0
+ */
+ 
 #include <time.h>
 #include <stdio.h>
 #include <fcntl.h>
