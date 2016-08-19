@@ -1,4 +1,4 @@
-#v1
+#ver 1.0
 CC = gcc
 AR=ar rc
 LD=ld
@@ -7,6 +7,7 @@ INSTALL=install
 DIR=ccufl
 MAKE=make
 LDCONFIG=ldconfig
+TAR=tar
 
 
 CFLAGS = -ggdb3 -Wall -fPIC -std=gnu99 -D_GNU_SOURCE -DPROV #-DNATION -DFRONT
@@ -144,11 +145,11 @@ objs/uuid.o : src/uuid.c
 	$(CC) -c src/uuid.c -o objs/uuid.o $(CFLAGS)
 
 dist :
-	cd .. && tar cvzf $(DIR).tar.gz $(DIR)	
+	cd .. && $(TAR) cvzf $(DIR).tar.gz $(DIR)	
 
 rpm:
 	$(MAKE) clean
-	tar -zcvf ccufl-1.0.tar.gz  ../ccufl/Makefile  ../ccufl/src/ ../ccufl/test ../ccufl/README.md ../ccufl/rpm_pkg/ccufl.spec
+	$(TAR) -zcvf ccufl-1.0.tar.gz  ../ccufl/Makefile  ../ccufl/src/ ../ccufl/test ../ccufl/README.md ../ccufl/rpm_pkg/ccufl.spec
 	rpmbuild -ta ccufl-1.0.tar.gz 
 	$(RM) -f ccufl-1.0.tar.gz 
 deb:
