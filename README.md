@@ -1,16 +1,17 @@
 #ccufl
-c common use function library,contain some frequently use function. eg :hashtable,linklist,array, dynamic string ,dict and so on.    
-一个c的公共函数库 ，包括一些常用的函数和库，例如 hash表，链表，数组，字典，字符串等等    
+c common use function library,contain some frequently use function. eg :hashtable,linklist,array, stack,queue,tlv struct, dynamic string ,dict and so on.    
+一个c的公共函数库 ，包括一些常用的函数和库，例如 hash表，链表，堆栈，队列，树，tlv结构，数组，字典，字符串等等      
   
   
 #compile and install  
 now ,compile
-进行编译  
-
+开始编译  
+正常的编译步骤
 
 
 make  
 make install  
+将库和头文件放到/usr/local/lib /usr/local/include 下面 
   
   
   
@@ -27,6 +28,10 @@ generate  rpm package
 make deb      
 generate debinan package ,fit for debian/ubuntu serial os.  
 生成deb 二进制包，适用debian/ubuntu系列的distribution os.   
+
+
+
+test目录里面是一些函数和库的具体使用例子。基本的都包进去了。
          
          
 #example
@@ -57,8 +62,10 @@ int main(int argc,char * argv[]){
 	slist_traverse(slist,print,0,slist_count(slist)-1);
 	slist_free(slist);
 }
-```
+```  
+编译方式：
 gcc hello.c -o hello -I/include_path -L/lib_path/ -lccufl 
+
 
 #contact me
 have problem? or have an awesome idea? post on this github issue page ,you can mail to me if you want .   
