@@ -1596,33 +1596,7 @@ mxml_new(mxml_node_t *parent,		/* I - Parent node */
 }
 
 
-/*
- * End of "$Id: mxml-node.c 34 2003-06-14 23:56:47Z mike $".
- */
-/*
- * "$Id: mxml-search.c 34 2003-06-14 23:56:47Z mike $"
- *
- * Search/navigation functions for mini-XML, a small XML-like file
- * parsing library.
- *
- * Copyright 2003 by Michael Sweet.
- *
- * This program is free software; you can redistribute it and/or
- * modify it under the terms of the GNU Library General Public
- * License as published by the Free Software Foundation; either
- * version 2, or (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * Contents:
- *
- *   mxmlFindElement() - Find the named element.
- *   mxmlWalkNext()    - Walk to the next logical node in the tree.
- *   mxmlWalkPrev()    - Walk to the previous logical node in the tree.
- */
+
 
 /*
  * Include necessary headers...
