@@ -41,7 +41,8 @@ SRCS = src/log.c 			\
 	   src/adlist.c			\
 	   src/sds.c			\
 	   src/ssort.c			\
-	   src/uuid.c
+	   src/uuid.c			\
+	   src/mxml.c
 OBJS = objs/log.o 			\
 	   objs/htab.o			\
 	   objs/hashtable.o		\
@@ -63,7 +64,8 @@ OBJS = objs/log.o 			\
 	   objs/adlist.o		\
 	   objs/sds.o			\
 	   objs/ssort.o			\
-	   objs/uuid.o			
+	   objs/uuid.o			\
+	   objs/mxml.o
 
 $(shell  mkdir  -p  ${OBJS_DIR})
 
@@ -143,6 +145,10 @@ objs/ssort.o : src/ssort.c
 
 objs/uuid.o : src/uuid.c
 	$(CC) -c src/uuid.c -o objs/uuid.o $(CFLAGS)
+
+objs/mxml.o : src/mxml.c
+	$(CC) -c src/mxml.c -o objs/mxml.o $(CFLAGS)
+
 
 dist :
 	cd .. && $(TAR) cvzf $(DIR).tar.gz $(DIR)	
