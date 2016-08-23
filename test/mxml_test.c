@@ -1,46 +1,7 @@
-/*
- * "$Id: testmxml.c 33 2003-06-14 22:14:17Z mike $"
- *
- * Test program for mini-XML, a small XML-like file parsing library.
- *
- * Copyright 2003 by Michael Sweet.
- *
- * This program is free software; you can redistribute it and/or
- * modify it under the terms of the GNU Library General Public
- * License as published by the Free Software Foundation; either
- * version 2, or (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * Contents:
- *
- *   main()          - Main entry for test program.
- *   type_cb()       - XML data type callback for mxmlLoadFile()...
- *   whitespace_cb() - Let the mxmlSaveFile() function know when to insert
- *                     newlines and tabs...
- */
-
-/*
- * Include necessary headers...
- */
-
 #include "mxml.h"
-
-
-/*
- * Local functions...
- */
 
 mxml_type_t	type_cb(mxml_node_t *node);
 int		whitespace_cb(mxml_node_t *node, int where);
-
-
-/*
- * 'main()' - Main entry for test program.
- */
 
 int					/* O - Exit status */
 main(int  argc,				/* I - Number of command-line args */
@@ -59,19 +20,12 @@ main(int  argc,				/* I - Number of command-line args */
 			};
 
 
- /*
-  * Check arguments...
-  */
-
   if (argc != 2)
   {
     fputs("Usage: testmxml filename.xml\n", stderr);
     return (1);
   }
 
- /*
-  * Test the basic functionality...
-  */
 
   tree = mxmlNewElement(MXML_NO_PARENT, "element");
 
@@ -228,9 +182,7 @@ main(int  argc,				/* I - Number of command-line args */
 
   mxmlDelete(tree);
 
- /*
-  * Open the file...
-  */
+
 
   if ((fp = fopen(argv[1], "r")) == NULL)
   {
@@ -254,10 +206,6 @@ main(int  argc,				/* I - Number of command-line args */
 
   if (!strcmp(argv[1], "test.xml"))
   {
-   /*
-    * Verify that mxmlFindElement() and indirectly mxmlWalkNext() work
-    * properly...
-    */
 
     if ((node = mxmlFindElement(tree, tree, "choice", NULL, NULL,
                                 MXML_DESCEND)) == NULL)
@@ -276,15 +224,8 @@ main(int  argc,				/* I - Number of command-line args */
     }
   }
 
- /*
-  * Print the XML tree...
-  */
 
   mxmlSaveFile(tree, stdout, whitespace_cb);
-
- /*
-  * Delete the tree and return...
-  */
 
   mxmlDelete(tree);
 
@@ -302,10 +243,6 @@ type_cb(mxml_node_t *node)		/* I - Element node */
   const char	*type;			/* Type string */
 
 
- /*
-  * You can lookup attributes and/or use the element name, hierarchy, etc...
-  */
-
   if ((type = mxmlElementGetAttr(node, "type")) == NULL)
     type = node->value.element.name;
 
@@ -320,21 +257,11 @@ type_cb(mxml_node_t *node)		/* I - Element node */
 }
 
 
-/*
- * 'whitespace_cb()' - Let the mxmlSaveFile() function know when to insert
- *                     newlines and tabs...
- */
-
 int					/* O - Whitespace char or 0 */
 whitespace_cb(mxml_node_t *node,	/* I - Element node */
               int         where)	/* I - Open or close tag? */
 {
   const char *name;			/* Name of element */
-
- /*
-  * We can conditionally break to a new line before or after any element.
-  * These are just common HTML elements...
-  */
 
   name = node->value.element.name;
 
@@ -370,14 +297,5 @@ whitespace_cb(mxml_node_t *node,	/* I - Element node */
       return ('\n');
   }
 
- /*
-  * Return 0 for no added whitespace...
-  */
-
   return (0);
 }
-
-
-/*
- * End of "$Id: testmxml.c 33 2003-06-14 22:14:17Z mike $".
- */
