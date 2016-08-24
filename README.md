@@ -11,7 +11,7 @@ now ,compile
 
 make  
 make install  
-将库和头文件放到/usr/local/lib /usr/local/include 下面 
+install会将库和头文件放到/usr/local/lib /usr/local/include 下面 
   
   
   
@@ -22,16 +22,16 @@ this step can generate dist tar package.
   
 make rpm    
 generate  rpm package    
-生成rpm 二进制包    
+编译，将库文件和头文件打包生成rpm包    
     
      
 make deb      
 generate debinan package ,fit for debian/ubuntu serial os.  
-生成deb 二进制包，适用debian/ubuntu系列的distribution os.   
+先编译，然后将库文件和头文件，进行打包封装成deb包。可以直接在debian和ubuntu系列上安装
 
 
 
-test目录里面是一些函数和库的具体使用例子。基本的都包进去了。
+test目录里面是一些函数和库的具体使用例子。和src内的是对应的。方便更好的入门使用
          
          
 #example
