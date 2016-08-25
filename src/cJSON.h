@@ -20,6 +20,10 @@
   THE SOFTWARE.
 */
 
+/*
+ * https://github.com/DaveGamble/cJSON
+ */
+
 #ifndef cJSON__h
 #define cJSON__h
 
