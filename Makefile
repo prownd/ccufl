@@ -42,7 +42,9 @@ SRCS = src/log.c 			\
 	   src/sds.c			\
 	   src/ssort.c			\
 	   src/uuid.c			\
-	   src/mxml.c
+	   src/mxml.c			\
+	   src/cJSON.c
+
 OBJS = objs/log.o 			\
 	   objs/htab.o			\
 	   objs/hashtable.o		\
@@ -65,7 +67,8 @@ OBJS = objs/log.o 			\
 	   objs/sds.o			\
 	   objs/ssort.o			\
 	   objs/uuid.o			\
-	   objs/mxml.o
+	   objs/mxml.o			\
+	   objs/cJSON.o
 
 $(shell  mkdir  -p  ${OBJS_DIR})
 
@@ -148,6 +151,9 @@ objs/uuid.o : src/uuid.c
 
 objs/mxml.o : src/mxml.c
 	$(CC) -c src/mxml.c -o objs/mxml.o $(CFLAGS)
+
+objs/cJSON.o : src/cJSON.c
+	$(CC) -c src/cJSON.c -o objs/cJSON.o $(CFLAGS)
 
 
 dist :
