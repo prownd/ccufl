@@ -18,8 +18,12 @@ install会将库和头文件放到/usr/local/lib /usr/local/include 下面
 make dist  
 this step can generate dist tar package.  
 生成 tar 包  
-  
-  
+
+make test      
+begin compile test example file in directory test.     
+编译test目录的example测试源文件。   
+    
+    
 make rpm    
 generate  rpm package    
 编译，将库文件和头文件打包生成rpm包    
