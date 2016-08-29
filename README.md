@@ -19,7 +19,7 @@ make dist
 this step can generate dist tar package.  
 生成 tar 包  
 
-make test      
+make example      
 begin compile test example file in directory test.     
 编译test目录的example测试源文件。   
     
