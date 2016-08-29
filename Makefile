@@ -159,8 +159,8 @@ objs/cJSON.o : src/cJSON.c
 dist :
 	cd .. && $(TAR) cvzf $(DIR).tar.gz $(DIR)	
 
-test:
-	make -C test 
+example:
+	$(MAKE) -C test 
 
 rpm:
 	$(MAKE) clean
@@ -196,6 +196,7 @@ uninstall:
 	${RM} -f '/usr/local/lib/'$(SHARE_OBJ)
 	$(LDCONFIG)
 clean :
+	$(MAKE) -C test clean
 	$(RM) $(OBJS) 
 	$(RM) $(LIB_OJB)
 	$(RM) -fr $(LIB_DIR)
