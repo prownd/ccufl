@@ -159,6 +159,9 @@ objs/cJSON.o : src/cJSON.c
 dist :
 	cd .. && $(TAR) cvzf $(DIR).tar.gz $(DIR)	
 
+test:
+	make -C test 
+
 rpm:
 	$(MAKE) clean
 	$(TAR) -zcvf ccufl-1.0.tar.gz  ../ccufl/Makefile  ../ccufl/src/ ../ccufl/test ../ccufl/README.md ../ccufl/rpm_pkg/ccufl.spec
