@@ -1,6 +1,5 @@
 #ver 1.0
 CC = gcc
-LD=ld
 MAKE=make
 
 
