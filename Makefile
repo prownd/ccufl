@@ -30,10 +30,10 @@ SRCS = src/log.c 			\
 	   src/error.c			\
 	   src/tlv.c			\
 	   src/times.c			\
-	   src/util.c		    \
+	   src/util.c		    	\
 	   src/arraylist.c		\
 	   src/stack.c			\
-	   src/tree.c           \
+	   src/tree.c           	\
 	   src/md5.c			\
 	   src/sha1.c			\
 	   src/sha256.c			\
@@ -52,7 +52,7 @@ OBJS = objs/log.o 			\
 	   objs/pqueue.o		\
 	   objs/conn.o			\
 	   objs/tlv.o			\
-	   objs/error.o       	\
+	   objs/error.o       		\
 	   objs/conf.o			\
 	   objs/times.o			\
 	   objs/util.o		   	\
