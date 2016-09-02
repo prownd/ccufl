@@ -1,3 +1,7 @@
+
+#ifndef _UUID_H_
+#define _UUID_H_
+
 /* what follows is a somewhat stripped-down version of the sample
    implementation of UUID generation from RFC 4122.  */
 
@@ -57,3 +61,6 @@ typedef struct {
   uint8_t   clock_seq_low;
   uint8_t   node[6];
 } uuid_t;
+
+
+#endif //_UUID_H_
