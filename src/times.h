@@ -11,16 +11,14 @@
 #include <time.h>
 #include <stdlib.h>
 
-/**
- *
- *
- */
+
+
 int jiffies_update();
 
 /**
  * @brief	get jiffies delta time
- *
  */
+ 
 uint32_t jiffies_delta();
 int ms2tv(int msec, struct timeval *tv);
 
@@ -32,6 +30,7 @@ int ms2tv(int msec, struct timeval *tv);
  * @return 
  *			0	success
  */
+
 int time2str(char *tmbuf, size_t size, const char *fmt);
 
 #endif /*_TIMES_H_*/
