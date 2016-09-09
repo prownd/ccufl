@@ -8,6 +8,8 @@ DIR=ccufl
 MAKE=make
 LDCONFIG=ldconfig
 TAR=tar
+CD=cd
+MKDIR=mkdir
 
 
 CFLAGS = -ggdb3 -Wall -fPIC -std=gnu99 -D_GNU_SOURCE -DPROV #-DNATION -DFRONT
@@ -70,7 +72,7 @@ OBJS = objs/log.o 			\
 	   objs/mxml.o			\
 	   objs/cJSON.o
 
-$(shell  mkdir  -p  ${OBJS_DIR})
+$(shell  $(MKDIR)  -p  ${OBJS_DIR})
 
 all: $(SHARE_OBJ) $(LIB_OBJ)
 
@@ -81,7 +83,7 @@ $(SHARE_OBJ):$(OBJS)
 
 $(LIB_OBJ):$(OBJS)
 	$(AR) $(LIB_OBJ) $(OBJS)	
-	$(shell mkdir -p ${LIB_DIR})
+	$(shell $(MKDIR) -p ${LIB_DIR})
 	$(MV) $(LIB_OBJ) $(LIB_DIR)
 objs/log.o : src/log.c
 	$(CC) -c src/log.c -o objs/log.o $(CFLAGS)
@@ -157,7 +159,7 @@ objs/cJSON.o : src/cJSON.c
 
 
 dist :
-	cd .. && $(TAR) cvzf $(DIR).tar.gz $(DIR)	
+	$(CD) .. && $(TAR) cvzf $(DIR).tar.gz $(DIR)	
 
 example:
 	$(MAKE) -C test 
