@@ -9,6 +9,7 @@
 #include <stdlib.h>
 #include "rbtree.h"
 
+//一些宏定义
 #define rb_parent(r)   ((r)->parent)
 #define rb_color(r) ((r)->color)
 #define rb_is_red(r)   ((r)->color==RED)
@@ -100,6 +101,11 @@ static Node* search(RBTree x, Type key)
     else
         return search(x->right, key);
 }
+
+
+/*
+ *红黑树搜索
+ */
 int rbtree_search(RBRoot *root, Type key)
 {
     if (root){
