@@ -1,3 +1,6 @@
+#create by hanjinpeng127@gmail.com 
+#April 12, 2019
+
 VERSION="1.0.1"
 CC = gcc
 AR=ar rc
