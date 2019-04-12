@@ -1,4 +1,4 @@
-#ver 1.0
+VERSION="1.0.1"
 CC = gcc
 AR=ar rc
 LD=ld
@@ -158,8 +158,13 @@ objs/cJSON.o : src/cJSON.c
 	$(CC) -c src/cJSON.c -o objs/cJSON.o $(CFLAGS)
 
 
+.PHONY: test example  rpm deb install uninstall dist distclean clean
+
 dist :
 	$(CD) .. && $(TAR) cvzf $(DIR).tar.gz $(DIR)	
+
+
+test:example
 
 example:
 	$(MAKE) -C test 
@@ -197,6 +202,9 @@ uninstall:
 	${RM} -f '/usr/local/lib/'$(LIB_OBJ)
 	${RM} -f '/usr/local/lib/'$(SHARE_OBJ)
 	$(LDCONFIG)
+
+distclean:clean
+
 clean :
 	$(MAKE) -C test clean
 	$(RM) $(OBJS) 
