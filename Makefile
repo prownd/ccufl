@@ -206,7 +206,6 @@ uninstall:
 	${RM} -f '/usr/local/lib/'$(SHARE_OBJ)
 	$(LDCONFIG)
 
-distclean:clean
 
 clean :
 	$(MAKE) -C test clean
@@ -214,3 +213,12 @@ clean :
 	$(RM) $(LIB_OJB)
 	$(RM) -fr $(LIB_DIR)
 	$(RM) -fr $(OBJS_DIR)
+
+distclean:
+	$(MAKE) -C test clean
+	$(RM) $(OBJS) 
+	$(RM) $(LIB_OJB)
+	$(RM) -fr $(LIB_DIR)
+	$(RM) -fr $(OBJS_DIR)
+	$(shell  [ -f *.deb ] && ${RM} -f *.deb )
+	$(shell  [ -f *.rpm ] && ${RM} -f *.rpm )
