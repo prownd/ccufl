@@ -2,6 +2,9 @@
 		   %{_rpmconfigdir}/find-debuginfo.sh %{?_find_debuginfo_opts} "%{_builddir}/%{?buildsubdir}"\
 %{nil}
 %define _rpmdir  ./
+
+%define debug_package %{nil}
+
 Summary:        ccufl library
 Name:           ccufl
 Version:        1.0

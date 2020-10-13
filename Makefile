@@ -16,7 +16,7 @@ MKDIR=mkdir
 
 
 CFLAGS = -ggdb3 -Wall -fPIC -std=gnu99 -D_GNU_SOURCE -DPROV #-DNATION -DFRONT
-LDFLAGS= -shared
+LDFLAGS= -shared --build-id 
 LIB_DIR = ./lib
 OBJS_DIR=./objs
 BUILD_DEB_TMP_DIR=./build_deb_tmp_dir
