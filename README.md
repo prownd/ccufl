@@ -4,15 +4,13 @@ c common use function library,contain some frequently use function. eg :hashtabl
   
   
 #compile and install  
-now ,compile
-开始编译  
-正常的编译步骤
+now ,compile it
 
-
+#编译步骤
 make  
 make install  
-install会将库和头文件放到/usr/local/lib /usr/local/include 下面 
-  
+install
+#安装过程中，会将库和头文件放到/usr/local/lib /usr/local/include 下面 
   
   
 make dist  
@@ -34,9 +32,8 @@ generate debinan package ,fit for debian/ubuntu serial os.
 先编译，然后将库文件和头文件，进行打包封装成deb包。可以直接在debian和ubuntu系列上安装
 
 
-
 test目录里面是一些函数和库的具体使用例子。和src内的是对应的。方便更好的入门使用
-         
+       
          
 #example
 下面是一个hello 例子  
