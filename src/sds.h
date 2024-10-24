@@ -60,6 +60,7 @@ sds sdscatprintf(sds s, const char *fmt, ...);
 sds sdstrim(sds s, const char *cset);
 sds sdsrange(sds s, long start, long end);
 void sdsupdatelen(sds s);
+void sdstoupper(sds s);
 int sdscmp(sds s1, sds s2);
 sds *sdssplitlen(char *s, int len, char *sep, int seplen, int *count);
 void sdstolower(sds s);

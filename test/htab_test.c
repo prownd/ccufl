@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 #include "htab.h"
 static uint32_t ht_hash(const void *key)
 {

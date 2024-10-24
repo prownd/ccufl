@@ -4,6 +4,8 @@
 > Mail: hanjinpeng127@163.com 
 > Created Time: 2016年07月27日 星期三 12时41分11秒
 ************************************************************************/
+#include <stdio.h>
+
 #include "uuid.h"
 
 int main(int argc, char *argv[]){

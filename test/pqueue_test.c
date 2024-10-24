@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "pqueue.h"
 typedef struct node_t {
 	int num;

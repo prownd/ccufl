@@ -1,6 +1,12 @@
-/**
- * @file hashtable_test.c
- */
+/****************************************************************
+ * This file is part of the ccufl project.                      *
+ * @license:    GPLv3                                           *
+ * @file:       hashtable_test.c                                *
+ * @version:    1.0                                             *
+ * @author:     Han Jinpeng <hanjinpeng127@gmail.com>           *
+ * @date:       2015-7-2                                        *
+ * @website:    https://github.com/prownd/ccufl                 *
+ ****************************************************************/
 
 #include <string.h>
 #include <stdio.h>
@@ -120,7 +126,3 @@ int main(int argc, char **argv)
 	return 0;	
 }
 /*end of file*/
-
-
-
-

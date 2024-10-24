@@ -1,4 +1,3 @@
-
 #ifndef _UUID_H_
 #define _UUID_H_
 
@@ -40,7 +39,6 @@
 #include <sys/time.h>
 #include <sys/sysinfo.h>
 
-
 /* system dependent call to get the current system time. Returned as
    100ns ticks since UUID epoch, but resolution may be less than
    100ns. */
@@ -62,5 +60,7 @@ typedef struct {
   uint8_t   node[6];
 } uuid_t;
 
+void get_uuid_string(char *uuid_str, size_t size);
+void get_uuid_string_toupper(char *uuid_str, size_t size);
 
 #endif //_UUID_H_

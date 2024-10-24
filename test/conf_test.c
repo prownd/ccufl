@@ -22,7 +22,8 @@ int config_init(conf_t *conf,configure* myconfig){
 		printf("port not exist\n");
 	}
 }
-print_config(configure* myconfig){
+
+void print_config(configure* myconfig){
 	printf("[user]\n");
 	printf("name:%s\n",myconfig->name);
 	printf("passwd:%s\n",myconfig->passwd);

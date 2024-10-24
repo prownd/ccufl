@@ -1,8 +1,12 @@
-/**
- * @file hashtable.c
- * @author hanjinpeng127@163.com
- * @version 3.1.1284
- */
+/****************************************************************
+ * This file is part of the ccufl project.                      *
+ * @license:    GPLv3                                           *
+ * @file:       hashtable.c                                     *
+ * @version:    1.0                                             *
+ * @author:     Han Jinpeng <hanjinpeng127@gmail.com>           *
+ * @date:       2015-7-2                                        *
+ * @website:    https://github.com/prownd/ccufl                 *
+ ****************************************************************/
  
 #include <stdio.h>
 #include <stdlib.h>
