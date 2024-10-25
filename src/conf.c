@@ -1,3 +1,13 @@
+/****************************************************************
+ * This file is part of the ccufl project.                      *
+ * @license:    GPLv3                                           *
+ * @file:       conf.c                                          *
+ * @version:    1.0                                             *
+ * @author:     Han Jinpeng <hanjinpeng127@gmail.com>           *
+ * @date:       2015-7-2                                        *
+ * @website:    https://github.com/prownd/ccufl                 *
+ ****************************************************************/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
