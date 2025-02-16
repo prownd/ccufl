@@ -7,7 +7,7 @@ CFLAGS = -ggdb3 -Wall -fPIC -std=gnu99 -D_GNU_SOURCE -DPROV #-DNATION -DFRONT
 
 INCS = -I ../src/
 
-all: log_test  cjson_test adlist_test dict_test hashtable_test mxml_test sha1_test  ssort_test tree_test arraylist_test error_test htab_test pqueue_test stack_test uuid_test base64_test conf_test md5_test sds_test slist_test 
+all: log_test  cjson_test adlist_test dict_test hashtable_test mxml_test sha1_test  ssort_test tree_test arraylist_test error_test htab_test pqueue_test stack_test uuid_test base64_test conf_test md5_test sds_test slist_test  generic_list_test
 
 log_test : log_test.c ../src/log.c 
 	$(CC) log_test.c ../src/log.c  -o log_test  $(CFLAGS) $(INCS)
@@ -69,5 +69,8 @@ sds_test : sds_test.c ../src/sds.c
 slist_test : slist_test.c ../src/slist.c 
 	$(CC) slist_test.c ../src/slist.c  -o slist_test  $(CFLAGS) $(INCS) -lpthread
 
+generic_list_test :  generic_list_test.c 
+	$(CC)  generic_list_test.c  -I ../src  -o  generic_list_test  $(CFLAGS) $(INCS) -lpthread
+
 clean :
-	$(RM) log_test  cjson_test adlist_test dict_test hashtable_test mxml_test sha1_test  ssort_test tree_test arraylist_test error_test htab_test pqueue_test stack_test uuid_test base64_test conf_test md5_test sds_test slist_test 
+	$(RM) log_test  cjson_test adlist_test dict_test hashtable_test mxml_test sha1_test  ssort_test tree_test arraylist_test error_test htab_test pqueue_test stack_test uuid_test base64_test conf_test md5_test sds_test slist_test  generic_list_test
