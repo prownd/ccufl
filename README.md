@@ -89,7 +89,7 @@ gcc hello.c -o hello -I/include_path -L/lib_path/ -lccufl
 
 
 
-# Contact me
+# Contact
 If you encounter bug issues or have better suggestions while using it.
 Please report issue questions or submit PR for modification and optimization.
 You can also send me an email to contact and communicate with me
