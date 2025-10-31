@@ -69,7 +69,7 @@ int main(int argc,char * argv[]){
 	slist_t * slist=NULL;
 	node* n1=(node*)malloc(sizeof(node));
 	node* n2=(node*)malloc(sizeof(node));
-	n1->num=11;注意
+	n1->num=11;
 	n1->next=NULL;
 	n2->num=22;
 	n2->next=NULL;
@@ -89,8 +89,10 @@ gcc hello.c -o hello -I/include_path -L/lib_path/ -lccufl
 
 
 
-
 # Contact me
-have problem? or have an awesome idea? post on this github issue page ,you can mail to me if you want .   
+If you encounter bug issues or have better suggestions while using it.
+Please report issue questions or submit PR for modification and optimization.
+You can also send me an email to contact and communicate with me
+Welcome feedback and contributions, thank you! 
 
-Email  :  <545751287@qq.com> 
+Email  :  <hanjinpeng127@163.com> 
